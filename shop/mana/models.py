@@ -15,6 +15,8 @@ class Customers(models.Model):
 	service_date = models.DateTimeField(default=timezone.now())
 	customer_id = models.IntegerField()
 	phone_number = models.IntegerField()
+	description = models.CharField ( max_length = 400 )
+
 
 	def __str__(self):
 		return self.customer_name

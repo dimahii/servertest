@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mana/style.css' %}">
     <meta charset="utf-8">
     <title></title>
   </head>
@@ -8,11 +10,11 @@
     <form class="" action="{% url 'mana:accept' %}"  method="post">
     {% csrf_token %}
     <label>Name</label>
-    <input type="text" name="name"/><br>
+    <input type="text" name="name"/><br><br>
     <label>Last Name</label>
-    <input type="text" name="last_name"/><br>
+    <input type="text" name="last_name"/><br><br>
     <label>Phone Number</label>
-    <input type="text" name="phone_number" value=""/><br>
+    <input type="text" name="phone_number" value=""/><br><br>
     <input type="submit" name="accept">
     </form>
   </body>
