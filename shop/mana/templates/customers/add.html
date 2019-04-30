@@ -9,13 +9,15 @@
   <body>
     <form class="" action="{% url 'mana:accept' %}"  method="post">
     {% csrf_token %}
-    <label>Name</label>
-    <input type="text" name="name"/><br><br>
-    <label>Last Name</label>
-    <input type="text" name="last_name"/><br><br>
-    <label>Phone Number</label>
-    <input type="text" name="phone_number" value=""/><br><br>
-    <input type="submit" name="accept">
+    <label>نام</label>
+    <input type="text" name="name"/><br>
+    <label>نام خانوادگی</label>
+    <input type="text" name="last_name"/><br>
+    <label>شماره موبایل</label>
+    <input type="text" name="phone_number" value=""/><br>
+    <label>توضیحات</label>
+    <textarea name="description" rows="12" cols="30"></textarea>
+    <input type="submit" name="accept" value='ثبت'>
     </form>
   </body>
 </html>

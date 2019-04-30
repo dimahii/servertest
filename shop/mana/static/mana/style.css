@@ -1,17 +1,44 @@
+body{
+	background: rgb(229,233,227)
+}
 form{
 	text-align: center;
-	border: 1px solid black;
 	width: 500px;
 	margin: auto;
 }
-input[type=text]{
+input[type=text],textarea{
 	border: 3px solid #ccc;
 	transition: .5s ease;
-	width:200px;
-	height: 30px;
-	margin: : 20px;
+	width:300px;
+	padding: 12px;
+	margin: 10px;
+	resize: vertical;
+
+
 }
 input[type=text]:focus{
 	border :3px solid gray;
 	transition: .5s ease;
+}
+* {
+  box-sizing: border-box;
+	font-size: 15px 
+}
+label{
+	float: right;
+	margin: 20px;
+	width: 25%
+}
+input[type=submit]{
+	color: white;
+	border: none;
+	padding: 15px 32px;
+	background-color: rgba(39,174,96 ,1);
+	border-radius: 2px;
+	cursor: pointer;
+	transition: .5s ease;
+	margin: : 20px
+}
+input[type=submit]:hover{
+	background-color: rgba(46,204,113 ,1);
 }

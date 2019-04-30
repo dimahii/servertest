@@ -14,6 +14,7 @@ def add(request):
 def accept(request):
     list = Customers
     try:
+        description = request.POST['description']
         name = request.POST['name']
         last_name = request.POST['last_name']
         phone_number = request.POST['phone_number']
@@ -21,7 +22,7 @@ def accept(request):
     except:
         raise
     else:
-        c = Customers(customer_name=name,customer_lastname=last_name,phone_number=phone_number,customer_id=customer_id)
+        c = Customers(customer_name=name,description=description,customer_lastname=last_name,phone_number=phone_number,customer_id=customer_id)
         c.save()
         real_date=date.gregorian_to_jalali(timezone.now().year,timezone.now().month,timezone.now().day)
         context={
