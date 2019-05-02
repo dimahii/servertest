@@ -1,0 +1,23 @@
+<table>
+  <tr>
+    {% for ul in list %}
+    <td>
+      <form class="" action="{% url 'mana:update' ul.id %}" method="post">
+        {% csrf_token %}
+        <label>نام</label>
+        <input type="text" name="name" value='{{ ul.customer_name }}''/><br>
+        <label>نام خانوادگی</label>
+        <input type="text" name="last_name" value="{{ ul.customer_lastname }}"/><br>
+        <label>شماره موبایل</label>
+        <input type="text" name="phone_number" value="{{ ul.phone_number }}"/><br>
+        <label>شناسه</label>
+        <input type="text" name="customer_id" value="{{ ul.customer_id }}"><br>
+        <label>توضیحات</label>
+        <textarea name="description" rows="12" cols="30" value></textarea>
+        <a href="{% url 'mana:delete' ul.id %}">delete</a>
+        <input type="submit" name="submit" value="update">
+      </form>
+    {% endfor %}
+  </tr>
+</table>
+<a href="{% url 'mana:index' %}">صفحه اصلی</a>

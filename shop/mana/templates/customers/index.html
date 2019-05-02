@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<form class="" action="{% url 'mana:edit' %}" method="post">
+	{% csrf_token %}
+	<input type="text" name="search">
+	<a href="{% url 'mana:add' %}">افزودن</a>
+	<input type="submit" name="" value="click">
+
+</form>
+</body>
+</html>

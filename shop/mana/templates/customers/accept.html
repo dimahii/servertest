@@ -1,3 +1,26 @@
-<h1>{{ customer.customer_id }}</h1>
-<h2>{{ real_date }}</h2>
-<a href="{% url 'mana:add' %}">add another?</a>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mana/accept_page_style.css' %}">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form class="" action="index.html" method="post">
+      <h1>شناسه مشتری :{{ customer.customer_id }}</h1>
+      <a class="form_link" href="{% url 'mana:add' %}">ثبت جدید </a>
+    </form>
+    <table>
+      {% for ul in all %}
+        <tr>
+          <td class="counter"><a href="{% url 'mana:detail' ul.id %}">{{ forloop.counter }}</a></td>
+          <td><a href="{% url 'mana:detail' ul.id %}">{{ ul.customer_lastname }}</a></td>
+          <td><a href="{% url 'mana:detail' ul.id %}">{{ ul.customer_id }}</a></td>
+          <td><a href="{% url 'mana:detail' ul.id %}">{{ ul.phone_number }}</a></td>
+        </tr>
+      {% endfor %}
+    </table>
+    <a href="{% url 'mana:index' %}">صفحه اصلی</a>
+  </body>
+</html>

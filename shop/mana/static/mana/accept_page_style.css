@@ -1,0 +1,32 @@
+body{
+  background-color: rgba(44,62,80 ,1);
+  color: rgba(189,195,199 ,1);
+  font-family: fantasy ;
+
+}
+form{
+  text-align: center;
+}
+.form_link{
+  text-decoration: none;
+  font-size: 30px;
+  color: rgba(39,174,96 ,1)
+}
+a:hover{
+  color: rgba(46,204,113 ,1)
+}
+table,tr,td{
+  margin: auto;
+  border: 2px solid rgba(149,165,166 ,1);
+  border-collapse: collapse;
+}
+tr,td{
+  padding: 20px 50px
+}
+.counter{
+  padding: 25px
+}
+ a{
+  color: white;
+  text-decoration: none;
+}

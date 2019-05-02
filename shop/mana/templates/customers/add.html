@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'mana/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mana/add_page_style.css' %}">
     <meta charset="utf-8">
     <title></title>
   </head>
@@ -19,5 +19,6 @@
     <textarea name="description" rows="12" cols="30"></textarea>
     <input type="submit" name="accept" value='ثبت'>
     </form>
+    <a href="{% url 'mana:index' %}">صفحه اصلی</a>
   </body>
 </html>
