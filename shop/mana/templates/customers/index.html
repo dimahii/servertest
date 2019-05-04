@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{%  static 'mana/index_page_style.css'  %}">
 	<title></title>
+
 </head>
 <body>
-<form class="" action="{% url 'mana:edit' %}" method="post">
+	<form action="{% url 'mana:detail' %}" method="post">
 	{% csrf_token %}
-	<input type="text" name="search">
-	<a href="{% url 'mana:add' %}">افزودن</a>
-	<input type="submit" name="" value="click">
+	<input type="text" name="search" placeholder="search..." autofocus autocomplete="off"><br><br>
+	<a href="{% url 'mana:add' %}">افزودن</a><br>
+	<input type="submit" name="submit" value="ویرابش">
 
-</form>
+	</form>
 </body>
 </html>

@@ -1,0 +1,24 @@
+img{
+	display:block;
+	margin-right: auto;
+	margin-left: auto;
+}
+a{
+	background-color: rgba(39,174,96 ,1);
+	display: block;
+	text-align:center;
+	font-size: 30px;
+	text-decoration: none;
+	color: white;
+	width: 300px;
+	margin:auto;
+	border-radius: 4px;
+	transition: .4s ease;
+	padding: 20px;
+	display: inherit;
+
+}
+a:hover{
+	background-color: rgba(46,204,113 ,1);
+	color: gray
+}

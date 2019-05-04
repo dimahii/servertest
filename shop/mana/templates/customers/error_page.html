@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'mana/error_page_style.css' %}">
+	<title></title>
+	
+</head>
+<body>
+	<img src="{% static 'mana/images/404.jpg' %}">	
+	<a href="{% url 'mana:index' %}">صفحه اصلی</a>
+
+</body>
+</html>

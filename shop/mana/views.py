@@ -39,7 +39,7 @@ def accept(request):
             'real_date' : real_date
         }
         return render(request,'customers/accept.html',context)
-def detail(request,id):
+def edit(request,id):
     list = Customers
     print(id)
     c = list.objects.get(pk=id)
@@ -48,7 +48,7 @@ def detail(request,id):
     }
     return render (request,'customers/detail.html',context)
 
-def edit(request):
+def detail(request):
     customer_list = Customers
     try:
         search = request.POST['search']
@@ -60,30 +60,42 @@ def edit(request):
             context={
             'list' : c
             }
-            return render(request,'customers/edit.html',context)
+            return render(request,'customers/search.html',context)
         elif (customer_list.objects.filter(customer_lastname__startswith = search)):
             c =customer_list.objects.filter(customer_lastname__startswith = search)
             context={
             'list' : c
             }
-            return render(request,'customers/edit.html',context)
+            return render(request,'customers/search.html',context)
         elif (customer_list.objects.filter(customer_id__startswith = search)):
             c = customer_list.objects.filter(customer_id__startswith = search)
             context={
             'list' : c
             }
-            return render(request,'customers/edit.html',context)
+            return render(request,'customers/search.html',context)
         elif (customer_list.objects.filter(phone_number__startswith = search)):
             c = customer_list.objects.filter(phone_number__startswith = search)
             context={
             'list' : c
             }
-            return render(request,'customers/edit.html',context)
+            return render(request,'customers/search.html',context)
+        else:
+            return render(request,'customers/error_page.html',context={})
+def updatee(request,id):
+    customer_list = Customers.objects.get(pk=id)
+    context={
+    'list' : customer_list
+    }
+    return render(request, 'customers/edit.html',context=context)
 def delete(request,id):
     customer_list = Customers
     c = customer_list.objects.get(pk=id)
+    a = customer_list.objects.get(pk=id)
     c.delete()
-    return HttpResponse('object is deleted')
+    context={
+    'list' : a
+    }
+    return render(request,'customers/delete.html',context)
 def update(request,id):
     customer_list = Customers
     c = customer_list.objects.get(pk=id)
@@ -103,4 +115,4 @@ def update(request,id):
         c.save()
         c.phone_number = phone_number
         c.save()
-    return HttpResponse('object is updated')
+    return render (request,'customers/update.html',context={})
