@@ -47,3 +47,9 @@ input[type=submit]:hover{
 a:hover{
 	background-color: rgba(46,204,113 ,1);
 }
+.status{
+	color: gray;
+	width: 300px;
+	text-align: center;
+	padding: 10px
+}

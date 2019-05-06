@@ -10,15 +10,20 @@
           <form class="" action="{% url 'mana:update' list.id %}" method="post">
             {% csrf_token %}
             <label>نام</label>
-            <input type="text" name="name" value='{{ list.customer_name }}'/><br>
+            <input type="text" name="name" value='{{ list.customer_name }}' autocomplete="off"/><br>
             <label>نام خانوادگی</label>
-            <input type="text" name="last_name" value="{{ list.customer_lastname }}"/><br>
+            <input type="text" name="last_name" value="{{ list.customer_lastname }}" autocomplete="off"/><br>
             <label>شماره موبایل</label>
-            <input type="text" name="phone_number" value="{{ list.phone_number }}"/><br>
+            <input type="text" name="phone_number" value="{{ list.phone_number }}" autocomplete="off"/><br>
             <label>شناسه</label>
-            <input type="text" name="customer_id" value="{{ list.customer_id }}"><br>
-            <label>توضیحات</label>
-            <textarea name="description" rows="12" cols="30" value></textarea>
+            <input type="text" name="customer_id" value="{{ list.customer_id }}" autocomplete="off"/><br>
+            <label>وضعیت</label>
+            <select name="status" class="status">
+              <option value="1">درحال تعمیر</option>
+              <option value="2" {% if list.service_type == 2 %} selected {% endif %}>تعمیرشده</option>
+              <option value="3" {% if list.service_type == 3 %} selected {% endif %}>عدم امکان  تعمیر</option>
+            </select>
+            <textarea name="description" rows="12" cols="30" autocomplete="off"></textarea>
             <input type="submit" name="submit" value="ثبت ویرایش"><br><br>
             <a href="{% url 'mana:index' %}">صفحه اصلی</a>
           </form>

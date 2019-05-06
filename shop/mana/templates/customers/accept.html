@@ -14,10 +14,10 @@
     <table>
       {% for ul in all %}
         <tr>
-          <td class="counter"><a href="{% url 'mana:detail' ul.id %}">{{ forloop.counter }}</a></td>
-          <td><a href="{% url 'mana:detail' ul.id %}">{{ ul.customer_lastname }}</a></td>
-          <td><a href="{% url 'mana:detail' ul.id %}">{{ ul.customer_id }}</a></td>
-          <td><a href="{% url 'mana:detail' ul.id %}">{{ ul.phone_number }}</a></td>
+          <td class="counter"><a href="{% url 'mana:edit' ul.id %}">{{ forloop.counter }}</a></td>
+          <td><a href="{% url 'mana:edit' ul.id %}">{{ ul.customer_lastname }}</a></td>
+          <td><a href="{% url 'mana:edit' ul.id %}">{{ ul.customer_id }}</a></td>
+          <td><a href="{% url 'mana:edit' ul.id %}">{{ ul.phone_number }}</a></td>
         </tr>
       {% endfor %}
     </table>

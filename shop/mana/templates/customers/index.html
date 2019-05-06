@@ -10,9 +10,34 @@
 	<form action="{% url 'mana:detail' %}" method="post">
 	{% csrf_token %}
 	<input type="text" name="search" placeholder="search..." autofocus autocomplete="off"><br><br>
-	<a href="{% url 'mana:add' %}">افزودن</a><br>
-	<input type="submit" name="submit" value="ویرابش">
-
+	<a class='a' href="{% url 'mana:add' %}">افزودن</a><br>
+	<input type="submit" name="submit" value="جستجو">
 	</form>
+	<table>
+		<tr>
+			<th>شماره</th>
+			<th>نام</th>
+			<th>نام خانوادگی</th>
+			<th>شماره موبایل</th>
+			<th>شناسه مشتری</th>
+			<th>توضیحات</th>
+			<th>وضعیت</th>
+			<th>ویرایش</th>
+			<th>حذف</th>
+		</tr>
+		{% for i in all %}
+		<tr>
+			<td>{{ forloop.counter }}</td>
+			<td>{{ i.customer_name }}</td>
+			<td>{{ i.customer_lastname }}</td>
+			<td>{{ i.phone_number }}</td>
+			<td>{{ i.customer_id }}</td>
+			<td>{{ i.description }}</td>
+			<td>{% if i.service_type == 1 %}در  حال تعمیر{% elif i.service_type == 2 %}تعمیر شده{% else %}عدم امکانتعمیر{%endif%}</td>
+			<td><a href="{% url 'mana:updatee' i.id  %}"><img src="{% static 'mana/icons/gear.png' %}"></a></td>
+			<td><a href="{% url 'mana:delete' i.id %}"><img src="{% static 'mana/icons/trash.png' %}"></a></td>
+		</tr>
+		{% endfor %}
+	</table>
 </body>
 </html>

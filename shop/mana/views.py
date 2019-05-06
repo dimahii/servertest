@@ -7,8 +7,10 @@ from . import date
 # Create your views here.
 def index(request):
     customers = Customers
+    all = customers. objects.order_by('-service_date')[:15]
     context={
     'list' : customers,
+    'all' : all
     }
     return render(request,'customers/index.html',context=context)
 def add(request):
@@ -41,7 +43,6 @@ def accept(request):
         return render(request,'customers/accept.html',context)
 def edit(request,id):
     list = Customers
-    print(id)
     c = list.objects.get(pk=id)
     context={
     'customer' : c
@@ -104,6 +105,7 @@ def update(request,id):
         name = request.POST['name']
         last_name = request.POST['last_name']
         phone_number = request.POST['phone_number']
+        status  = request.POST['status']
     except:
         raise
     else:
@@ -114,5 +116,7 @@ def update(request,id):
         c.customer_lastname = last_name
         c.save()
         c.phone_number = phone_number
+        c.save()
+        c.service_type = status
         c.save()
     return render (request,'customers/update.html',context={})

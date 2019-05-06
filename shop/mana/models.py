@@ -6,8 +6,9 @@ from django.utils import timezone
 
 class Customers(models.Model):
 	Choices = (
-		(1,('repair')),
-		(2,('sell'))
+		(1,('درحال تعمیر')),
+		(2,('تعمیر شده')),
+		(3,('عدم امکان تعمیر'))
 	)
 	customer_name = models.CharField( max_length = 200 )
 	customer_lastname = models.CharField( max_length = 200 )

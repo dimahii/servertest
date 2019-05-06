@@ -2,6 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     {% load static %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css" integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" crossorigin="anonymous">
     <link rel="stylesheet" type='text/css' href="{% static 'mana/search_page_style.css' %}">
     <meta charset="utf-8">
     <title></title>
@@ -9,29 +11,31 @@
   <body>
     <table>
       <tr>
-        <td>name</td>
-        <td>last_name</td>
-        <td>phone_number</td>
-        <td>customer_id</td>
-        <td>description</td>
-        <td>status</td>
-        <td>edit</td>
-        <td>delete</td>
+        <th>شماره</th>
+        <th>نام</th>
+        <th>نام خانوادگی</th>
+        <th>شماره موبایل</th>
+        <th>شناسه مشتری</th>
+        <th>توضیحات</th>
+        <th>وضعیت</th>
+        <th>ویرایش</th>
+        <th>حذف</th>
       </tr>
       {% for i in list %}
       <tr>
-        <td>
-          {{ i.customer_name }}
-        </td>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.customer_name }}</td>
         <td>{{ i.customer_lastname }}</td>
         <td>{{ i.phone_number }}</td>
         <td>{{ i.customer_id }}</td>
         <td>{{ i.description }}</td>
-        <td>status</td>
-        <td><a href="{% url 'mana:updatee' i.id  %}">edit</a></td>
-        <td><a href="{% url 'mana:delete' i.id %}">delete</a></td>
+        <td>{% if i.service_type == 1 %}در  حال تعمیر{% elif i.service_type == 2 %}تعمیر شده{% else %}عدم امکانتعمیر{%endif%}</td>
+        <td><a href="{% url 'mana:updatee' i.id  %}"><img src="{% static 'mana/icons/gear.png' %}"></a></td>
+        <td><a href="{% url 'mana:delete' i.id %}"><img src="{% static 'mana/icons/trash.png' %}"></a></td>
       </tr>
       {% endfor %}
     </table>
+      <a class="return" href="{% url 'mana:index' %}">صفحه اصلی</a>
+
   </body>
 </html>
